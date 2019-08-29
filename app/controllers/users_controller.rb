@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 #Basic action for new
     def new
     end
-#Create a new user and redirect if not saved, set session id and go to home
+#Create a new user and redirect if not saved, set session id and go to welcome/home
     def create
         @user = User.create(user_params)
         return redirect_to controller: 'users', action: 'new' unless @user.save
