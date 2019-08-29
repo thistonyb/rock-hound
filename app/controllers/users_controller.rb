@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+
 #Basic action for new
     def new
     end

@@ -1,4 +1,5 @@
 class SessionsController < ApplicationController
+
 #Basic action for new
     def new
     end
