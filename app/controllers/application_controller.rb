@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
     before_action :current_user
-#Get the current user by session user_id
+#Get the current user by session user_id or a new user that's created
     def current_user
         @user = (User.find_by(id: session[:user_id]) || User.new)
     end
