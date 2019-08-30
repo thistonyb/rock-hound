@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
 #Basic action for new
     def new
+        @user = User.new
     end
 #Create a new session, authenticate password, return to new (login) if false, set session user_id, 
 #go to home if true
@@ -15,7 +16,7 @@ class SessionsController < ApplicationController
     end
 #Log out of session by deleting user id
     def destroy
-        session.delete :user_id
-        redirect_to '/'
+        session[:user_id]
+        redirect_to root_path
     end
 end
