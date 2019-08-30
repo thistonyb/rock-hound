@@ -1,5 +1,20 @@
 <h1> welcome/home </h1>
 
-<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
-    <input type = submit value = 'Log Out'>
-<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<h3> Sign Up with the link below </h3>
+<%= link_to(controller: 'users', action: 'new') { 'Sign Up' } %>
+<h3> Log in with the link below </h3>
+<%= link_to(controller: 'sessions', action: 'new') { 'Log In' } %>

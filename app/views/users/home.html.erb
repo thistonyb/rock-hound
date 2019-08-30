@@ -1,1 +1,10 @@
-<h1>Hello RockHound, <%= current_user.name %></h1>
+<h1>Hello RockHound, <%= @user.name %></h1>
+
+
+
+
+
+
+<%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
+    <input type = submit value = 'Log Out'>
+<% end %>

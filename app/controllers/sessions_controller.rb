@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
         return redirect_to(controller: 'sessions', action: 'new') unless user
         session[:user_id] = user.id
         @user = user
-        redirect_to controller: 'welcome', action: 'home'
+        redirect_to controller: 'users', action: 'home'
     end
 #Log out of session by deleting user id
     def destroy
