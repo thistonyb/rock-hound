@@ -12,7 +12,7 @@ class SessionsController < ApplicationController
             session[:user_id] = @user.id
             redirect_to home_path(@user)
         else
-            render '/login'
+            render :login
         end
     end
 #Log out of session by deleting user id
