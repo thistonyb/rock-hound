@@ -1,10 +1,11 @@
 class SessionsController < ApplicationController
 
-#Basic action for new
+#Basic action for login(new)
     def login
+        return if already_logged_in?
         @user = User.new
     end
-#Create a new session, authenticate password, return to new (login) if false, set session user_id, 
+#Create a new session, authenticate password, set session user_id, render login if false
 #go to user/home if true
     def create
         @user = User.find_by(name: params[:user][:name])
