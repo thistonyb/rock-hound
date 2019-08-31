@@ -20,7 +20,7 @@ class UsersController < ApplicationController
             render :new
         end  
     end
-#If we dont have a user send them to root page. Home(show) - set @user if found go to users/home.
+#If we dont have a user send them to root page. Then set @user if found and render users/home.
     def home
         return if user_not_authenticated?
         current_user
