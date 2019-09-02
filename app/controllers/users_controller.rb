@@ -8,12 +8,12 @@ class UsersController < ApplicationController
         @user = User.new
         render :new 
     end
-#Check if already logged in so they dont log in twice. Create a new user and redirect if not saved,
-#set session id (log user in) and go to users/home
+#Check if already logged in so they dont log in twice. Create a new user and check if valid and saves.
+#set session id (log user in) and go to users/home. Redirects back to new if not.
     def create
         return if already_logged_in?
         @user = User.new(user_params)
-        if @user.save
+        if @user.valid? && @user.save
             session[:user_id] = @user.id
             redirect_to home_path(@user)
         else
