@@ -27,7 +27,7 @@ class UsersController < ApplicationController
         render :home
     end
 
-#Set up strong params for User
+#Set up strong params for User.
     private
     def user_params
         params.require(:user).permit(:name, :email, :password, :password_confirmation)
