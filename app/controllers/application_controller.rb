@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
     protect_from_forgery with: :exception
-    helper_method :current_user, :logged_in?, :user_authenticated
+    helper_method :current_user, :logged_in?, :user_not_authenticated?
 
 #If current user is nil it is assigned the User found by session if there is a session id
     def current_user
