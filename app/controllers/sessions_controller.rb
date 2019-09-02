@@ -6,8 +6,8 @@ class SessionsController < ApplicationController
         return if already_logged_in?
         @user = User.new
     end
-#Create a new session - authenticate password, set session user_id and go to user/home, otherwise render
-#login again.
+#Find user and create a new session - authenticate password, set session user_id and go to user/home, 
+#otherwise render login again.
     def create
         @user = User.find_by(name: params[:user][:name])
         if @user && @user.authenticate(params[:user][:password])
