@@ -1,12 +1,13 @@
 class SessionsController < ApplicationController
 
-#Basic action for login(new) - check if already logged in, if so send to users/home
+#Basic action for login(new) - check if already logged in, if so send to users/home, otherwised on to 
+#session/create.
     def login
         return if already_logged_in?
         @user = User.new
     end
-#Create a new session - authenticate password, set session user_id, go to user/home if true,
-#render login if false
+#Create a new session - authenticate password, set session user_id and go to user/home, otherwise render
+#login again.
     def create
         @user = User.find_by(name: params[:user][:name])
         if @user && @user.authenticate(params[:user][:password])

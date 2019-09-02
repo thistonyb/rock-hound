@@ -41,6 +41,7 @@ class RocksController < ApplicationController
             render :edit
         end
     end
+    
 #Set up strong params for rock.
     private
     def rock_params
