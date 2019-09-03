@@ -26,7 +26,8 @@ class RocksController < ApplicationController
         return if user_not_authenticated?
         @rock = Rock.find(params[:id])
     end
-#If not authenticated, send back to welcome/home page. Otherwise, find rock and on to rocks/edit view.
+#If not authenticated, send back to welcome/home page. Otherwise, find rock make sure the user is the 
+#owner of the rock - if not redirect to welcome, if so - on to update.
     def edit
         return if user_not_authenticated?
         @rock = Rock.find(params[:id])
@@ -34,12 +35,12 @@ class RocksController < ApplicationController
             redirect_to root_path
         end
     end
-#If not authenticated, send back to welcome/home page. Otherwise, make sure the user is the owner of the 
-#rock, update rock and on to users/home.
+#If not authenticated, send back to welcome/home page. Otherwise, find rock, make sure the user is the 
+#owner of the rock, rock updates and on to rocks/show view.
     def update
         return if user_not_authenticated?
         @rock = Rock.find(params[:id])
-        if @rock.valid? && @rock.user == current_user && @rock.update(rock_params)
+        if @rock.user == current_user && @rock.valid? && @rock.update(rock_params)
             redirect_to rock_path(@rock)
         else
             render :edit
