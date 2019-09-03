@@ -2,8 +2,7 @@ class RocksController < ApplicationController
     before_action :to_user_not_authenticated?
 
 #If not authenticated, send back to welcome/home page. Otherwise, make a new rock and on to rocks/new view.
-    def new 
-        
+    def new    
         @rock = Rock.new
     end
 #If not authenticated, send back to welcome/home page (Keep user from filling out form and coming back to 

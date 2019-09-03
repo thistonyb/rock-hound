@@ -1,0 +1,18 @@
+<h2> Viewing <%= @rock.name %> </h2>
+
+<% if current_user == @rock.user.id %>
+    <h1><%= link_to 'Edit', edit_rock_path(@rock)%> 
+    or 
+    <%= link_to 'Delete', rock_path(@rock), method: :delete, data: {confirm: 'Are you sure?'}%>
+<% end %>
+
+<p>
+    Description: <%= @rock.description %><br>
+    Location: <%=@ rock.location %>
+</p>
+
+Comments:
+    <% @rock.comments.each do |comment| %>
+        <%= comment.user.name %> said
+        <%= comment.content %>
+    <% end %>
