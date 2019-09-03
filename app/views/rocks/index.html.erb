@@ -1,0 +1,10 @@
+<h2> Hello, <%= current_user %>, here are all your rock specimens: </h2>
+
+<%= @rocks.each do |rock| %>
+<h3><%= counter %>.</h3>
+    <h4>Name: <%= rock.name %> </h4>
+    <h4>Location: <%= rock.location %> </h4>
+    <h4>Description: <%= rock.description %> </h4>
+    <%= link_to rock.name, rock_path(rock)%>
+    <% counter += 1 %>
+<% end %>

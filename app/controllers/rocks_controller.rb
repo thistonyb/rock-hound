@@ -17,7 +17,7 @@ class RocksController < ApplicationController
     end
 #If not authenticated, send back to welcome/home page. Otherwise, grab all rocks and on to rocks/index view.
     def index
-        @rocks = Rock.all
+        @rocks = user.rocks.all
     end
 #If not authenticated, send back to welcome/home page. Otherwise, find rock and on to rocks/show view.
     def show
