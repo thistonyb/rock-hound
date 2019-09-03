@@ -31,7 +31,7 @@ class RocksController < ApplicationController
         return if user_not_authenticated?
         @rock = Rock.find(params[:id])
         if @rock.user != current_user
-            redirect_to rock_path(current_user)
+            redirect_to root_path
         end
     end
 #If not authenticated, send back to welcome/home page. Otherwise, make sure the user is the owner of the 
@@ -40,7 +40,7 @@ class RocksController < ApplicationController
         return if user_not_authenticated?
         @rock = Rock.find(params[:id])
         if @rock.valid? && @rock.user == current_user && @rock.update(rock_params)
-            redirect_to rock_path(current_user)
+            redirect_to rock_path(@rock)
         else
             render :edit
         end
@@ -51,7 +51,7 @@ class RocksController < ApplicationController
         @rock = Rock.find(params[:id])
         if @rock.user == current_user
             @rock.delete
-            redirect_to rock_path(current_user)
+            redirect_to rocks_path
         end
     end
 #Set up strong params for rock.
@@ -59,6 +59,4 @@ class RocksController < ApplicationController
     def rock_params
         params.require(:rock).permit(:name, :description, :location)
     end
-
-
 end
