@@ -1,34 +1,6 @@
 <h2> Edit Your Rock <h2>
 
-<%= form_for @rock do |f| %>
-
-    <% if @user.errors.any? %>
-    <div id= "error_explanation" >
-            <h2>
-            <%= pluralize(@user.errors.count, "error") %>
-            prohibited this user from being created:
-            </h2>
-
-            <ul>
-            <% @user.errors.full_messages.each do |msg| %>
-                <li><%= msg %></li>
-            <% end %>
-            </ul>
-    </div>
-    <% end %>
-
-    <label> Name of rock specimen: </label><br>
-    <%= f.text_field :name %>
-
-    <label> Description of rock specimen: </label><br>
-    <%= f.text_field :description %>
-
-    <label> Location rock specimen was found: </label><br>
-    <%= f.text_field :location %>
-
-    <%= f.submit %>
-<% end %>
-
+<%= render 'form' %>
 
 
     
