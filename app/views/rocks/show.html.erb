@@ -1,4 +1,8 @@
 <h2> Viewing <%= @rock.name %> </h2>
+<p>
+    Description: <%= @rock.description %><br>
+    Location: <%=@ rock.location %>
+</p>
 
 <% if current_user == @rock.user.id %>
     <h1><%= link_to 'Edit', edit_rock_path(@rock)%> 
@@ -6,12 +10,25 @@
     <%= link_to 'Delete', rock_path(@rock), method: :delete, data: {confirm: 'Are you sure?'}%>
 <% end %>
 
-<p>
-    Description: <%= @rock.description %><br>
-    Location: <%=@ rock.location %>
-</p>
 
-Comment on this rock (create link to comment)
+
+Comment on this rock:
+<%= form_for @rock.comments.build do |f| %>
+    <%= f.hidden_field :rock_id %>
+
+    <%= f.fields_for :user, User.new do |user_fields| %>
+        <%= user_fields.label :name %>
+        <%= user_fields.text_field :name %>
+    <% end %>
+
+    <p>
+        <%= f.label :content, "New Comment" %><br>
+        <%= f.text_area :content %>
+    </p>
+    <br/>
+    <%= f.submit %>
+<% end %>
+
 
 Comments:
     <% @rock.comments.each do |comment| %>
