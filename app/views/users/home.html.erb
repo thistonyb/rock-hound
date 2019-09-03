@@ -1,8 +1,12 @@
 <h1> Hello RockHound, <%= @user.name %></h1>
 
 <h2> Take a look at your rock collection: </h2>
+<%= link_to(controller: 'rocks', action: 'index') { 'Your Rocks' } %>
+
 
 <h2> Add a new rock specimen </h2>
+<%= link_to(controller: 'rocks', action: 'new') { 'New Rock' } %>
+
 
 
 
