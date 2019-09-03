@@ -1,5 +1,13 @@
-<h1>Hello RockHound, <%= @user.name %></h1>
+<h1> Hello RockHound, <%= @user.name %></h1>
 
+<h2> Take a look at your rock collection: </h2>
+
+
+
+<h2>You have commented on the following rock specimens:</h2>
+<% @user.rocks.each do |rock| %>
+    <%= link_to rock.name, rock_path(rock)%>
+<% end %>
 
 
 

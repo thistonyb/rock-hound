@@ -11,6 +11,8 @@
     Location: <%=@ rock.location %>
 </p>
 
+Comment on this rock (create link to comment)
+
 Comments:
     <% @rock.comments.each do |comment| %>
         <%= comment.user.name %> said
