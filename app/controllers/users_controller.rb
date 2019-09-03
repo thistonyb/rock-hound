@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 #and send them on to users/new
     def new
         @user = User.new
-        render :new 
     end
 #Check if already logged in so they dont create a user while logged in. Create a new user and check if 
 #valid and saves. Set session id (log user in) and go to users/home. Redirects back to new if not.
@@ -22,7 +21,6 @@ class UsersController < ApplicationController
     def home
         return if user_not_authenticated?
         current_user
-        render :home
     end
 
 #Set up strong params for User.
