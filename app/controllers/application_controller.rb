@@ -26,4 +26,12 @@ class ApplicationController < ActionController::Base
         end
         return false
     end
+#In order to not call more than one redirect or render used return.
+    def to_user_not_authenticated?
+        return if user_not_authenticated?
+    end
+#In order to not call more than one redirect or render used return.
+    def to_already_logged_in?
+        return if already_logged_in?
+    end
 end
