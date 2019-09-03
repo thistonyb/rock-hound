@@ -30,18 +30,30 @@ class RocksController < ApplicationController
     def edit
         return if user_not_authenticated?
         @rock = Rock.find(params[:id])
+        if @rock.user != current_user
+            redirect_to rock_path(current_user)
+        end
     end
-#If not authenticated, send back to welcome/home page. Otherwise, update rock and on to rocks/show view.
+#If not authenticated, send back to welcome/home page. Otherwise, make sure the user is the owner of the 
+#rock, update rock and on to users/home.
     def update
         return if user_not_authenticated?
         @rock = Rock.find(params[:id])
-        if @rock.valid? && @rock.update(rock_params)
-            redirect_to rock_path(@rock)
+        if @rock.valid? && @rock.user == current_user && @rock.update(rock_params)
+            redirect_to rock_path(current_user)
         else
             render :edit
         end
     end
-    
+#If not authenticated, send back to welcome/home page. Otherwise, delete the rock and head back to 
+    def delete
+        return if user_not_authenticated?
+        @rock = Rock.find(params[:id])
+        if @rock.user == current_user
+            @rock.delete
+            redirect_to rock_path(current_user)
+        end
+    end
 #Set up strong params for rock.
     private
     def rock_params
