@@ -52,6 +52,6 @@ class RocksController < ApplicationController
 #Set up strong params for rock.
     private
     def rock_params
-        params.require(:rock).permit(:name, :description, :location)
+        params.require(:rock).permit(:name, :description, :location, :user_id)
     end
 end
