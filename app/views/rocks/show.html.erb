@@ -18,12 +18,12 @@
     <%= f.hidden_field :rock_id %>
 
     <%= f.fields_for :user, User.new do |user_fields| %>
-        <%= user_fields.label :name %>
+        <%= user_fields.label :name %>:
         <%= user_fields.text_field :name %>
     <% end %>
 
     <p>
-        <%= f.label :content, "New Comment" %>
+        <%= f.label :content, "New Comment" %>:
         <%= f.text_area :content %>
     </p>
     
@@ -31,7 +31,7 @@
 <% end %><br>
 
 
-Comments:
+<h3>Comments:</h3>
     <% @rock.comments.each do |comment| %>
         
         <%= comment.content %>
