@@ -10,7 +10,7 @@ class RocksController < ApplicationController
 #page later and submitting if they get logged out). Otherwise, create the rock and on to rock/show view.
     def create
         @rock = current_user.rocks.new(rock_params)
-        if @rock.save                     
+        if @rock.valid? && @rock.save                     
             redirect_to rock_path(@rock)
         else
             render :new
