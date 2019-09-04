@@ -18,7 +18,7 @@
     <%= f.hidden_field :rock_id %>
 
     <%= f.fields_for :user, User.new do |user_fields| %>
-        <%= user_fields.label :name %>:
+        <%= user_fields.label :name, 'Your Name' %>:
         <%= user_fields.text_field :name %>
     <% end %>
 

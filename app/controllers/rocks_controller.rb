@@ -48,11 +48,11 @@ class RocksController < ApplicationController
         end
     end
 #If not authenticated, send back to welcome/home page. Otherwise, delete the rock and head to rocks/index view.
-    def delete
+    def destroy
         @rock = Rock.find(params[:id])
         if @rock.user == current_user
             @rock.delete
-            redirect_to rocks_path
+            redirect_to collection_path(@rock.user)
         end
     end
 #Set up strong params for rock.
