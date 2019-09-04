@@ -3,7 +3,7 @@
     <h3>Description: <%= @rock.description %></h3>
     <h3>Location: <%= @rock.location %></h3>
 </p>
-<%if current_user = @rock.user.id %>
+<%if current_user = @rock.user %>
      <%= link_to 'Edit', edit_rock_path(@rock)%> 
     or 
     <%= link_to 'Delete', rock_path(@rock), method: :delete, data: {confirm: 'Are you sure?'}%><br>

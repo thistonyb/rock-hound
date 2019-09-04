@@ -9,8 +9,9 @@ class RocksController < ApplicationController
 #If not authenticated, send back to welcome/home page (Keep user from filling out form and coming back to 
 #page later and submitting if they get logged out). Otherwise, create the rock and on to rock/show view.
     def create
+        #@rock = Rock.new(rock_params)
         @rock = current_user.rocks.build(rock_params)
-        if @rock.valid? && @rock.save                   
+        if @rock.valid? && current_user.save                   
             redirect_to rock_path(@rock)
         else
             render :new
