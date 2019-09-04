@@ -1,14 +1,12 @@
 <%= form_for @rock do |f| %>
 
-    
-
-    <label> Name of rock specimen: </label><br>
+    <%= f.label :name %><br>
     <%= f.text_field :name %><br>
 
-    <label> Description of rock specimen: </label><br>
+    <%= f.label :description %><br>
     <%= f.text_area :description %><br>
 
-    <label> Location rock specimen was found: </label><br>
+    <%= f.label :location %><br>
     <%= f.text_field :location %><br>
 
     <%= f.submit %>

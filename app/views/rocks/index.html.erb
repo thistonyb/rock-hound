@@ -1,7 +1,7 @@
 <h2> Hello <%= current_user.name %>, here are all your rock specimens: </h2>
 
 <%= @rocks.each do |rock| %>
-<h3><%= counter %>.</h3>
+<h3><%= counter %> . </h3>
     <h4>Name: <%= rock.name %> </h4>
     <h4>Location: <%= rock.location %> </h4>
     <h4>Description: <%= rock.description %> </h4>
@@ -10,3 +10,4 @@
 <% end %>
 
 <%= link_to(controller: :users, action: :home) { 'Back to Homepage' } %><br>
+<%= link_to 'Back to your homepage.', home_path %><br>

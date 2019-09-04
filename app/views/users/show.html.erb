@@ -1,0 +1,8 @@
+<h1>Hello <%= @user.name %></h1>
+<ul>
+    <% @user.rocks.each do |rock| %>
+        <li>
+            <%= link_to rock.name, rock_path(rock) %>
+        </li>
+    <% end %>
+</ul>

@@ -1,17 +1,15 @@
 <h1> Hello RockHound, <%= @user.name %></h1>
 
-<h2> Take a look at your rock collection: </h2>
-<%= link_to(controller: 'rocks', action: 'index') { 'Your Rocks' } %><br>
+<h2> Take a look at your:</h2> 
+<%= link_to 'Collection', user_path(@user)%> 
 
 
 <h2> Add a new rock specimen </h2>
-<%= link_to(controller: 'rocks', action: 'new') { 'New Rock' } %><br>
+<%= link_to 'New Rock', new_rock_path(@user) %><br>
 
 
 <h2>You have commented on the following rock specimens:</h2>
-<% @user.rocks.each do |rock| %>
-    <%= link_to rock.name, rock_path(rock)%>
-<% end %>
+
 
 
 <%= form_tag ({controller: 'sessions', action: 'destroy', method: 'post'}) do %>
