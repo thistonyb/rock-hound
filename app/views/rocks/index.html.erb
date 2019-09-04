@@ -1,7 +1,7 @@
 <h2> Hello <%= current_user.name %>, take a look at all our RockHound member's specimens!</h2>
-
+<% counter = 1 %>
 <%= @rocks.each do |rock| %>
-<h3><%= counter %> . </h3>
+<h3> <%= counter %> . </h3>
     <h4>Name: <%= rock.name %> </h4>
     <h4>Location: <%= rock.location %> </h4>
     <h4>Description: <%= rock.description %> </h4>
