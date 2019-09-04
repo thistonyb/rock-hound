@@ -1,10 +1,10 @@
 <h1> Hello RockHound, <%= @user.name %></h1>
 
 <h2> Take a look at your:</h2> 
-<%= link_to 'Collection', user_path(@user)%> 
+<%= link_to 'Collection', collection_path(@user)%> 
 
 
-<h2> Add a new rock specimen </h2>
+<h2> Add a new rock specimen: </h2>
 <%= link_to 'New Rock', new_rock_path(@user) %><br>
 
 
