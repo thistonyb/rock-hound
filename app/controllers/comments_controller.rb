@@ -2,8 +2,8 @@ class CommentsController < ApplicationController
     before_action :to_already_logged_in?
 
     def create
-        comment = Comment.create(comment_params)
-        redirect_to comment.rock
+        @comment = Comment.create(comment_params)
+        redirect_to rock_path(@comment)
     end
 
     private
