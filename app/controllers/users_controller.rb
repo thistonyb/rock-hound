@@ -22,10 +22,6 @@ class UsersController < ApplicationController
         user_not_authenticated?
         current_user
     end
-    
-    def show
-        @user = User.find(params[:id])
-    end
 #Set up strong params for User.
     private
     def user_params
