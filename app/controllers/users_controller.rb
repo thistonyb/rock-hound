@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :to_already_logged_in?, except: [:home, :show]
+    before_action :to_already_logged_in?, except: [:home]
 
 #New session is checked if user is logged in, if they are sent to users/home(show). If not create new user
 #and send them on to users/new
