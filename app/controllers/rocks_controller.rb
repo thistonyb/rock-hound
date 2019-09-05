@@ -1,6 +1,6 @@
 
 class RocksController < ApplicationController
-    #before_action :to_user_not_authenticated?
+    before_action :to_user_not_authenticated?
 
 #If not authenticated, send back to welcome/home page. Otherwise, make a new rock and on to rocks/new view.
     def new    
@@ -26,7 +26,6 @@ class RocksController < ApplicationController
     end
 
     def collection
-        #@rock = Rock.find(params[:id])
         @rocks = current_user.rocks.all
     end
 #If not authenticated, send back to welcome/home page. Otherwise, find rock make sure the user is the 
