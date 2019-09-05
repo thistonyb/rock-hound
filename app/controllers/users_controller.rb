@@ -22,11 +22,6 @@ class UsersController < ApplicationController
         user_not_authenticated?
         current_user
     end
-
-    def show
-        current_user
-    end
-
 #Set up strong params for User.
     private
     def user_params
