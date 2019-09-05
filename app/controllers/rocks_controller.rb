@@ -11,7 +11,7 @@ class RocksController < ApplicationController
     def create
         #@rock = Rock.new(rock_params)
         @rock = current_user.rocks.build(rock_params)
-        if @rock.valid? && current_user.save                   
+        if @rock.valid? && @rock.save                 
             redirect_to rock_path(@rock)
         else
             render :new
@@ -28,7 +28,7 @@ class RocksController < ApplicationController
 
     def collection
         #@rock = Rock.find(params[:id])
-        @rock = current_user.rocks.all
+        @rocks = current_user.rocks.all
     end
 #If not authenticated, send back to welcome/home page. Otherwise, find rock make sure the user is the 
 #owner of the rock - if not redirect to welcome, if so - on to edit view.
