@@ -24,7 +24,7 @@ class RocksController < ApplicationController
     def show
         @rock = Rock.find(params[:id])
     end
-
+#If not authenticated, send back to welcome/home page. Otherwise, find all of current users rocks.
     def collection
         @rocks = current_user.rocks.all
     end
