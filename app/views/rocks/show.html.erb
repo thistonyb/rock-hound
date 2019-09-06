@@ -19,12 +19,20 @@
 
 <%= form_for @rock.comments.build, :as => :comment, :url => rock_comments_path(@rock) do |f| %>
     <%= f.hidden_field :rock_id %>
-    <%= f.hidden_field :user_id, value: current_user.id %>
+
+    <% if current_user %>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+    <% else %>
+    <%= f.fields_for :user, User.new do |user_fields| %>
+            <%= user_fields.label :name, 'Name' %>:
+            <%= user_fields.text_field :name %>
+            <%= user_fields.label :password, 'Password' %>:
+            <%= user_fields.text_field :password %>
+        <% end %>
+    <% end %>
 
 
     <p>
-
-
         <%= f.label :content, "New Comment" %>:
         <%= f.text_area :content %>
     </p>
@@ -37,6 +45,5 @@
     <% @rock.comments.each do |comment| %>
         
         
-
         <%= comment.content %>
     <% end %>
