@@ -4,7 +4,7 @@
     <h3>Description: <%= @rock.description %></h3>
     <h3>Location: <%= @rock.location %></h3>
 </p>
-<%if current_user.id == @rock.user.id %>
+<%if current_user && current_user.id == @rock.user.id %>
      <%= link_to 'Edit', edit_rock_path(@rock)%> 
     or 
     <%= link_to 'Delete', rock_path(@rock), method: :delete, data: {confirm: 'Are you sure?'}%><br>
@@ -15,7 +15,6 @@
 <br>
 <br>
 
-<h3>Comment on this rock:</h3>
 
 <%= form_for @rock.comments.build, :as => :comment, :url => rock_comments_path(@rock) do |f| %>
     <%= f.hidden_field :rock_id %>
@@ -23,14 +22,20 @@
     <% if current_user %>
         <%= f.hidden_field :user_id, value: current_user.id %>
     <% else %>
-    <%= f.fields_for :user, User.new do |user_fields| %>
+
+    <h3> Sign up as a RockHound member to comment on this specimen! </h3>
+        <%= f.fields_for :user, User.new do |user_fields| %>
             <%= user_fields.label :name, 'Name' %>:
             <%= user_fields.text_field :name %>
             <%= user_fields.label :password, 'Password' %>:
-            <%= user_fields.text_field :password %>
+            <%= user_fields.password_field :password %>
+            <%= user_fields.label :password_confirmation %>
+            <%= user_fields.password_field :password_confirmation %>
         <% end %>
     <% end %>
 
+    
+    <h3>Comment on this rock:</h3>
 
     <p>
         <%= f.label :content, "New Comment" %>:
@@ -38,6 +43,7 @@
     </p>
     
     <%= f.submit %>
+    
 <% end %><br>
 
 
@@ -45,5 +51,6 @@
     <% @rock.comments.each do |comment| %>
         
         
-        <%= comment.content %>
+        <%= comment.content %><br>
+        <br>
     <% end %>

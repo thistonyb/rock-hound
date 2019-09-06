@@ -1,6 +1,8 @@
+<% if current_user %>
 <h2> Hello <%= current_user.name %>, take a look at all our RockHound member's specimens!</h2>
 
 <%= link_to 'Home', home_path %>
+<% end %>
 <br>
 <br>
 <% counter = 1 %>
