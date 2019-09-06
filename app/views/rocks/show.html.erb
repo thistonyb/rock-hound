@@ -17,15 +17,14 @@
 
 <h3>Comment on this rock:</h3>
 
-<%= form_for @rock.comments.build do |f| %>
+<%= form_for @rock.comments.build, :as => :comment, :url => rock_comments_path(@rock) do |f| %>
     <%= f.hidden_field :rock_id %>
+    <%= f.hidden_field :user_id, value: current_user.id %>
 
-    <%= f.fields_for :user, User.new do |user_fields| %>
-        <%= user_fields.label :name, 'Your Name' %>:
-        <%= user_fields.text_field :name %>
-    <% end %>
 
     <p>
+
+
         <%= f.label :content, "New Comment" %>:
         <%= f.text_area :content %>
     </p>
@@ -35,6 +34,9 @@
 
 
 <h3>Comments:</h3>
-    <% @rock.co.each do |comment| %>
+    <% @rock.comments.each do |comment| %>
+        
+        
+
         <%= comment.content %>
     <% end %>
