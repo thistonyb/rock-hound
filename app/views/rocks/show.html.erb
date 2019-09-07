@@ -48,10 +48,9 @@
 
 <h3>Comments:</h3>
     <% @rock.comments.each do |comment| %>
-        
-        <%user_comment = User.find_by_id(comment.user_id)%>
-        <%byebug%>
-        <%=user_comment.name%>
-        <%= comment.content %><br>
-        <br>
-    <% end %>
+        <%if comment.id != nil %>
+            <%=@comment_user[comment.user_id]%> said
+            <%= comment.content %><br>
+            <br>
+        <% end %>
+<% end %>

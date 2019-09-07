@@ -11,7 +11,7 @@
     <h4>Name: <%= rock.name %> </h4>
     <h4>Location: <%= rock.location %> </h4>
     <h4>Description: <%= rock.description %> </h4>
-    <%= link_to rock.name, rock_path(rock)%>
+    <%= link_to 'Comment on this ' + rock.name, rock_path(rock)%>
     <% counter += 1 %>
 <% end %>
 <br/>
