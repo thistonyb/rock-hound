@@ -4,6 +4,16 @@
 rock hunting finds. Come share your specimens with our RockHound community. Happy hunting! </div>
 
 <br>
+    <h3> Latest Specimen Submissions: </h3>
+    <% @recent_rocks.each do |rock| %>
+        <% if rock.id != nil %>
+           A <%= rock.name %>, by 
+            <%= @rock_user[rock.user_id] %><br>
+            <br>
+        <% end %>
+    <% end %>
+
+<br>
 <h3><%= link_to 'Check out all our member specimen finds!', rocks_path %><br></h3>
 <br>
 

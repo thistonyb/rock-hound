@@ -26,9 +26,9 @@ class RocksController < ApplicationController
         @rock = Rock.find(params[:id])
         @comment_user = {}
         @rock.comments.each do |comment|
-            if @comment_user [comment.user_id] == nil
+            if @comment_user[comment.user_id] == nil
                user = User.find_by_id(comment.user_id)
-               @comment_user [user.id] = user.name
+               @comment_user[user.id] = user.name
             end
         end
     end
