@@ -29,7 +29,7 @@ class SessionsController < ApplicationController
 
         session[:user_id] = @user.id
 
-        render 'users/home'
+        render 'users/home' #redirect_to home_path(@user)
     end
 #Log out of session by deleting user id
     def destroy
