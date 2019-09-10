@@ -15,4 +15,6 @@ Rails.application.routes.draw do
   post '/logout' => 'sessions#destroy'
 
   root 'welcome#home'
+
+  get '/auth/facebook/callback' => 'sessions#facebook_create'
 end

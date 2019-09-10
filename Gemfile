@@ -40,6 +40,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'omniauth'
 #Provider-specific OmniAuth gem
 gem 'omniauth-facebook'
+#Gem to ensure enviroment variables are loaded correctly and securely into ENV hash
+gem 'dotenv-rails'
 
 
 group :development, :test do

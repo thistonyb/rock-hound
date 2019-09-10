@@ -21,3 +21,13 @@ rock hunting finds. Come share your specimens with our RockHound community. Happ
 <%= link_to(controller: 'users', action: 'new') { 'Sign Up' } %>
 <h3> Log in with the link below </h3>
 <%= link_to(controller: 'sessions', action: 'login') { 'Log In' } %>
+<br>
+<br>
+<% if session[:user_id] %>
+    <h3><%= @facebook_user.name %></h3>
+    <h3>Email: <%= @facebook_user.email %></h3>
+    <h3>Facebook UID: <%= @facebook_user.uid %>
+    <img src="<%= @facebook_user.image %>" >
+<% else %>
+    <%= link_to('Log in with Facebook!', '/auth/facebook') %>
+<% end %>
