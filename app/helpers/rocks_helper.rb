@@ -13,7 +13,7 @@ module RocksHelper
         rock_list = []
         recent_rocks.each do |rock| 
             if rock.id != nil 
-                rock_list << "A #{rock.name}, found by #{rock_user[rock.user_id]}"  
+                rock_list << "#{rock.name}, found by #{rock_user[rock.user_id]}"  
             end
         end 
         return display_list(rock_list)
