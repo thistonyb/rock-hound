@@ -19,15 +19,17 @@ class SessionsController < ApplicationController
     end
 
     def facebook_create
-        @facebook_user = User.find_or_create_by(uid: auth['uid']) do |u|
+        @user = User.find_or_create_by(uid: auth['uid']) do |u|
             u.name = auth['info']['name']
             u.email = auth['info']['email']
             u.image = auth['info']['image']
+            u.password = User.generic_password
+            u.password_confirmation = u.password
         end
 
-        session[:user_id] = @facebook_user.id
+        session[:user_id] = @user.id
 
-        render 'welcome/home'
+        render 'users/home'
     end
 #Log out of session by deleting user id
     def destroy
