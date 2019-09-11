@@ -1,6 +1,8 @@
 module RocksHelper
 
 
+    
+#Create array of most recent rocks (last 3) as a string with name of rock and user name and returns it.
     def recent_rocks
         recent_rocks = Rock.most_recent(3)
         rock_user = {}
