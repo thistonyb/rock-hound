@@ -26,7 +26,7 @@ class SessionsController < ApplicationController
             u.password = User.generic_password
             u.password_confirmation = u.password
         end
-
+        @user.save
         session[:user_id] = @user.id
 
         render 'users/home' #redirect_to home_path(@user)

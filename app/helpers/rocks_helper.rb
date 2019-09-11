@@ -16,12 +16,6 @@ module RocksHelper
                 rock_list << "#{rock.name}, found by #{rock_user[rock.user_id]}"  
             end
         end 
-        return display_list(rock_list)
-    end
-
-    def display_list(list)
-        list.each do |ele|
-            "#{ele}<br></br>".html_safe
-        end
+        return rock_list
     end
 end
