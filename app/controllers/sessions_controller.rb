@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
             render :login
         end
     end
-
+#Create a new user if there is none through OmniAuth-Facebook, set session id and go to the users home page.
     def facebook_create
         @new_user = User.find_or_create_by(uid: auth['uid']) do |u|
             u.name = auth['info']['name']
