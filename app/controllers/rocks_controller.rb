@@ -2,7 +2,7 @@
 class RocksController < ApplicationController
     before_action :to_user_not_authenticated?, except: [:index, :show, :new]
 
-#If not authenticated, send back to welcome/home page. Otherwise, make a new rock and on to rocks/new view.
+#Make a new rock and on to rocks/new view.
     def new    
         @rock = Rock.new
     end
@@ -16,11 +16,11 @@ class RocksController < ApplicationController
             render :new
         end
     end
-#If not authenticated, send back to welcome/home page. Otherwise, grab all rocks and on to rocks/index view.
+#Grab all rocks and on to rocks/index view.
     def index
         @rocks = Rock.all
     end
-#If not authenticated, send back to welcome/home page. Otherwise, find rock and on to rocks/show view. Also,
+#Find rock and on to rocks/show view. Also,
 #access all the comment user_ids, put them in a hash, and send them in via @commnet_user.
     def show
         @rock = Rock.find(params[:id])
