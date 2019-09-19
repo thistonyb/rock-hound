@@ -11,6 +11,4 @@ class User < ActiveRecord::Base
     def self.generic_password
         @password = BCrypt::Password.create(ENV['GENERIC_PASSWORD'])
     end
-
-   
 end
