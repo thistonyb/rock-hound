@@ -30,7 +30,7 @@ Initial Release:
 9/18/2019
 
 License:
-This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
 Acknowledgments:
 DJ & Dakota for the mentorship.
