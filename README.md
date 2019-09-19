@@ -6,40 +6,31 @@ An in-depth paragraph about your project and overview of use.
 RockHound users can sign-up and login. They also have the ability to login via FaceBook. Once they are on their homepage they can create a new rock specimen submission. A user can view their collection by clicking a link on their homepage. Once at their collection they can edit or delete any specimens listed. They can also view all submissions and comment on any of the specimens they find interesting. On their homepage they can access all their comments. Users can logout and and end their session when they are done.
 
 Getting Started:
-Dependencies
-Describe any prerequisites, libraries, OS version, etc., needed before installing program.
-ex. Windows 10
-Installing
-How/where to download your program
-Any modifications needed to be made to files/folders
-Executing program
-How to run the program
-Step-by-step bullets
-code blocks for commands
-Help
-Any advise for common problems or issues.
+Dependencies:
+CD to directory and run bundle install.
 
-command to run if program contains helper info
-Authors
-Contributors names and contact info
+Installing:
+You can find Rockhound at - https://github.com/thistonyb/rock-hound.git
+- On GitHub, navigate to the main page of the repository.
+- Under the repository name, click Clone or download.
+- In the Clone with HTTPs section, click to copy the clone URL for the repository.
+- Open your terminal.
+- Change the curreent working directory to the location you want the cloned directory to be made.
+- Type git clone, and then paste the URL you copied in Step 2.
+- Press Enter. And the RockHound clone will be created.
+- Once cloned and you are in the main directory you can use Rails server by typing 'rails s' and go to the local server in your browser and find yourself on the root webpage.
 
-ex. Dominique Pizzie
-ex. @DomPizzie
+Authors:
+Tony Baker - this.tonybaker@gmail.com
 
-Version History
-0.2
-Various bug fixes and optimizations
-See commit change or See release history
+Version History:
 0.1
-Initial Release
-License
+
+Initial Release:
+9/18/2019
+
+License:
 This project is licensed under the [NAME HERE] License - see the LICENSE.md file for details
 
-Acknowledgments
-Inspiration, code snippets, etc.
-
-awesome-readme
-PurpleBooth
-dbader
-zenorocha
-fvcproductions
+Acknowledgments:
+DJ & Dakota for the mentorship.
