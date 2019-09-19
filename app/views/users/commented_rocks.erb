@@ -1,0 +1,14 @@
+<h1> Hello RockHound, <%= @user.name %></h1>
+
+<br>
+    <%= link_to 'Home', home_path(@user) %>
+<br>
+
+<h3>Here are all the rocks your commented on:</h3>
+
+    <% @user.commented_rocks.each do |rock| %>
+        <%if rock.id != nil %>
+            <%= link_to 'You commented on ' + rock.name, rock_path(rock)%>
+            <br>
+        <% end %>
+<% end %>

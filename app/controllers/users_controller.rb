@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :to_already_logged_in?, except: [:home]
+    before_action :to_already_logged_in?, except: [:home, :commented_rocks]
 
 #New session is checked if user is logged in, if they are sent to users/home(show). If not create new user
 #and send them on to users/new
@@ -21,6 +21,10 @@ class UsersController < ApplicationController
     def home
         user_not_authenticated?
         current_user
+    end
+
+    def commented_rocks
+        @user = current_user
     end
 #Set up strong params for User.
     private
